@@ -12,9 +12,8 @@ async function getPokemons(req, res) {
 
 async function getPokemonById(req, res) {
   const { id } = req.params;
-  const numberId = Number(id);
 
-  const pokemon = await db.getPokemonById({ id: numberId });
+  const pokemon = await db.getPokemonById(number(id));
 
   if (!pokemon) {
     res.status(404).send("Pokemon not found");
@@ -25,9 +24,8 @@ async function getPokemonById(req, res) {
 
 async function getPokemonsByType(req, res) {
   const { id } = req.params;
-  const numberId = Number(id);
 
-  const pokemons = await db.getPokemonsByType({ id: numberId });
+  const pokemons = await db.getPokemonsByType(Number(id));
 
   if (!pokemons) {
     res.status(404).send("No Pokemons found for that Type");
@@ -38,9 +36,8 @@ async function getPokemonsByType(req, res) {
 
 async function getPokemonsByTrainer(req, res) {
   const { id } = req.params;
-  const numberId = Number(id);
 
-  const pokemons = await db.getPokemonsByTrainer({ id: numberId });
+  const pokemons = await db.getPokemonsByTrainer(Number(id));
 
   if (!pokemons) {
     res.status(404).send("No Pokemon found for that trainer");
@@ -83,9 +80,8 @@ async function updatePokemon(req, res) {
 
 async function deletePokemon(req, res) {
   const { id } = req.params;
-  const numberId = Number(id);
 
-  await db.deletePokemon({ id: numberId });
+  await db.deletePokemon(Number(id));
 
   res.redirect("/");
 }

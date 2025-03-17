@@ -18,7 +18,7 @@ app.use("/trainers", trainerRouter);
 app.use("/pokemons", pokemonRouter);
 
 app.get("/", async (req, res) => {
-  res.send("home");
+  res.render("index");
 });
 
 const PORT = process.env.PORT || 3000;

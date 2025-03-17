@@ -11,10 +11,9 @@ async function getTrainers(req, res) {
 }
 
 async function getTrainerById(req, res) {
-  const { trainerIdText } = req.params;
-  const id = trainerIdText;
+  const { id } = req.params;
 
-  const trainer = await db.getTrainerById({ id });
+  const trainer = await db.getTrainerById(Number(id));
 
   if (!trainer) {
     res.status(404).send("Trainer not found");
@@ -41,10 +40,9 @@ async function updateTrainer(req, res) {
 }
 
 async function deleteTrainer(req, res) {
-  const { trainerIdText } = req.params;
-  const id = Number(trainerIdText);
+  const { id } = req.params;
 
-  const author = await db.deleteTrainer({ id });
+  await db.deleteTrainer(Number(id));
 
   res.redirect("/");
 }

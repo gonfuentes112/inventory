@@ -2,7 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const typeRouter = require("./routes/typeRouter");
 const trainerRouter = require("./routes/trainerRouter");
-const pokeomnRouter = require("./routes/pokemonRouter");
+const pokemonRouter = require("./routes/pokemonRouter");
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));

@@ -3,15 +3,17 @@ const pokemonRouter = Router();
 const pokemonsController = require("../controller/pokemonsController");
 
 pokemonRouter
-  .get("/:id", pokemonsController.getPokemonById)
+  .route("/:id")
+  .get(pokemonsController.getPokemonById)
   .delete(pokemonsController.deletePokemon);
 
 pokemonRouter.get("/type/:id", pokemonsController.getPokemonsByType);
 pokemonRouter.get("/trainer/:id", pokemonsController.getPokemonsByTrainer);
 
 pokemonRouter
+  .route("/")
   .get(pokemonsController.getPokemons)
   .post(pokemonsController.postPokemon)
   .patch(pokemonsController.updatePokemon);
 
-  module.exports = pokemonRouter;
+module.exports = pokemonRouter;

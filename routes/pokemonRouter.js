@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const pokemonRouter = Router();
-const pokemonsController = require("../controller/pokemonscontroller");
+const pokemonsController = require("../controller/pokemonsController");
 
 pokemonRouter
   .get("/:id", pokemonsController.getPokemonById)
@@ -13,3 +13,5 @@ pokemonRouter
   .get(pokemonsController.getPokemons)
   .post(pokemonsController.postPokemon)
   .patch(pokemonsController.updatePokemon);
+
+  module.exports = pokemonRouter;

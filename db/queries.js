@@ -95,3 +95,20 @@ async function getTypeById(id) {
   const { rows } = await pool.query("SELECT * FROM types WHERE id=$1", [id]);
   return rows;
 }
+
+module.exports = {
+    getTrainers,
+    getTrainerById,
+    postTrainer,
+    updateTrainer,
+    deleteTrainer,
+    getPokemons,
+    getPokemonById,
+    getPokemonsByType,
+    getPokemonsByTrainer,
+    postPokemon,
+    updatePokemon,
+    deletePokemon,
+    getTypes,
+    getTrainerById
+}
